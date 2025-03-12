@@ -17,23 +17,38 @@
             padding-bottom: 100px;
 
         }
+        .btn{
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        .btn:hover{
+            background-color: black;
+            color: azure;
+        }
     </style>
 </head>
 <body>
     <div class="main">
     <h1>Log In</h1>
-    <label for="username">User Name:</label>
-    <input type="text"><br><br>
-    <label for="password">Password:</label>
-    <input type="password">
+    <label for="username">User Name:</label><br>
+    <input type="text" id="username" required><br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" required>
     <br><br>
-    <input type="button" value="log in" onclick="nextpage()">
+    <input type="button" class="btn" value="log in" onclick="nextpage()">
     </div>
 </body>
 </html>
 
 <script>
 function nextpage() {
-    window.location.href = "homepage.html";
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    if((!username) && (!password)){
+        alert("Please enter your username and password");
+    }else{
+        window.location.href = "homepage.html";
+    }
+    
 }
 </script>
